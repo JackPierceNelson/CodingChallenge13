@@ -43,3 +43,4 @@ function handleError(error) {
 fetchProducts()
 .then(displayProducts)
 .catch(handleError);
+
