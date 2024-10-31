@@ -14,14 +14,6 @@ function fetchProducts() {
     });
 }
 
-// Using .catch() to handle the Promise
-// Calling the function
-fetchProducts()
-.then(displayProducts)
-.catch(handleError);
-
-
-
 // Task 3: Display Product Details Dynamically
 
 function displayProducts(products) {
@@ -39,3 +31,15 @@ function displayProducts(products) {
     productContainer.innerHTML = productHTML;
 }
 
+// Task 4: Handle Errors Gracefully
+
+function handleError(error) {
+    console.error('Error:', error);
+    productContainer.innerHTML = '<p>Error loading products. Please try again later.</p>';
+}
+
+// Using .catch() to handle the Promise
+// Calling the function
+fetchProducts()
+.then(displayProducts)
+.catch(handleError);
