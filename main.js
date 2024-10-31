@@ -19,3 +19,23 @@ function fetchProducts() {
 fetchProducts()
 .then(displayProducts)
 .catch(handleError);
+
+
+
+// Task 3: Display Product Details Dynamically
+
+function displayProducts(products) {
+    const productHTML = products.map(product => `
+        <div class="product">
+            <img src="${product.fields.image[0].url}" alt="${product.fields.name}" class="product-image">
+            <div class ="product-info">
+                <h2 class="product-name">${product.fields.name}</h2>
+                <p class="product-company">${product.fields.company}</p>
+                <p class="product-price">$${product.fields.price.toFixed(2)}</p>
+        </div>
+        </div>
+    `).join(" ");
+
+    productContainer.innerHTML = productHTML;
+}
+
